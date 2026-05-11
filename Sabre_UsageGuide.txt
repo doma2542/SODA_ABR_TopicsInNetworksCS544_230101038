@@ -1,0 +1,39 @@
+usage: sabre.py [-h] [-n NETWORK] [-nm MULTIPLIER] [-m MOVIE] [-ml LEN] [-a ABR] [-ab] [-ao] [-gp GAMMAP] [-noibr] [-ma AVERAGE]
+                [-ws WINDOW_SIZE [WINDOW_SIZE ...]] [-hl HALF_LIFE [HALF_LIFE ...]] [-s WHEN SEEK] [-r REPLACEMENT] [-b MAXBUFFER]
+                [-noa] [-rmp THRESHOLD] [-v]
+
+Simulate an ABR session.
+
+options:
+  -h, --help            show this help message and exit
+  -n, --network NETWORK
+                        Specify the .json file describing the network trace. (default: network.json)
+  -nm, --network-multiplier MULTIPLIER
+                        Multiply throughput by MULTIPLIER. (default: 1)
+  -m, --movie MOVIE     Specify the .json file describing the movie chunks. (default: movie.json)
+  -ml, --movie-length LEN
+                        Specify the movie length in seconds (use MOVIE length if None). (default: None)
+  -a, --abr ABR         Choose ABR algorithm from predefined list (bola, bolae, throughput, dynamic, dynamicdash, bba), or specify .py
+                        module to import. (default: bolae)
+  -ab, --abr-basic      Set ABR to BASIC (ABR strategy dependant). (default: False)
+  -ao, --abr-osc        Set ABR to minimize oscillations. (default: False)
+  -gp, --gamma-p GAMMAP
+                        Specify the (gamma p) product in seconds. (default: 5)
+  -noibr, --no-insufficient-buffer-rule
+                        Disable Insufficient Buffer Rule. (default: False)
+  -ma, --moving-average AVERAGE
+                        Specify the moving average strategy (sliding, ewma). (default: ewma)
+  -ws, --window-size WINDOW_SIZE [WINDOW_SIZE ...]
+                        Specify sliding window size. (default: [3])
+  -hl, --half-life HALF_LIFE [HALF_LIFE ...]
+                        Specify EWMA half life. (default: [3, 8])
+  -s, --seek WHEN SEEK  Specify when to seek in seconds and where to seek in seconds. (default: None)
+  -r, --replace REPLACEMENT
+                        Set replacement strategy from predefined list (none, left, right), or specify .py module to import. (default:
+                        none)
+  -b, --max-buffer MAXBUFFER
+                        Specify the maximum buffer size in seconds. (default: 25)
+  -noa, --no-abandon    Disable abandonment. (default: False)
+  -rmp, --rampup-threshold THRESHOLD
+                        Specify at what quality index we are ramped up (None matches network). (default: None)
+  -v, --verbose         Run in verbose mode. (default: False)
